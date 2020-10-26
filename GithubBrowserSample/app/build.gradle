@@ -22,6 +22,9 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-allopen'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
 
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.firebase-perf'
+
 allOpen {
     // allows mocking for classes w/o directly opening them for release builds
     annotation 'com.android.example.github.testing.OpenClass'
@@ -93,6 +96,10 @@ dependencies {
     implementation deps.kotlin.stdlib
 
     implementation deps.timber
+
+    implementation platform('com.google.firebase:firebase-bom:25.12.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-perf:19.0.8'
 
     kapt deps.dagger.android_support_compiler
     kapt deps.dagger.compiler
